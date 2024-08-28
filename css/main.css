@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Racing+Sans+One&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 * {
-  margin: 0;
+  margin: 0px;
   padding: 0;
   box-sizing: border-box;
 }
@@ -28,7 +28,7 @@ header::after {
   position: absolute;
   content: "";
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(50%);
   left: 100px;
   height: 5px;
   width: 40%;
@@ -39,6 +39,8 @@ header::after {
   color: #fffff;
 }
 .logo img {
+  display: block;
+  margin: -40px auto;
   max-width: 200px;
   filter: invert(1);
 }
@@ -48,7 +50,7 @@ header .year {
   color: #fff;
   letter-spacing: 1px;
   font-weight: 800;
-  margin-top: 40px;
+  bottom: 0;
 }
 header .menu {
   position: relative;
@@ -59,6 +61,7 @@ header .menu {
   background-position: center;
   filter: invert(1);
   cursor: pointer;
+  top: 30px;
 }
 
 header .menu.active {
@@ -72,12 +75,13 @@ header .menu.active {
   filter: invert(1);
   cursor: pointer;
 }
+
 /* Navigation */
 .nav {
   z-index: 200;
   position: absolute;
   right: 100px;
-  top: 0;
+  top: 20px;
   width: 30%;
   height: 5px;
   border-bottom: 5px solid;
@@ -104,8 +108,7 @@ header .menu.active {
   border-top: 5px solid;
   border-image: linear-gradient(
       90deg,
-      transparent,
-      var(--primary),
+      transparent var(--primary),
       var(--primary),
       transparent
     )
@@ -117,7 +120,7 @@ header .menu.active {
   list-style: none;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-100px);
+  transform: translateY(100px);
   transition: 0.5s;
 }
 .nav.active li {
@@ -324,7 +327,9 @@ header .menu.active {
 .trailer.active {
   display: block;
 }
+
 /* Banner Gallery */
+
 .banner .gallery {
   position: absolute;
   content: "";
@@ -376,7 +381,7 @@ header .menu.active {
 .sci {
   position: absolute;
   top: 50%;
-  right: 100%;
+  left: 95%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
@@ -392,4 +397,95 @@ header .menu.active {
 }
 .sci li a:hover {
   color: var(--primary);
+}
+
+/* Video Play and Pause Button */
+.banner .play,
+.banner .pause {
+  display: none;
+  position: absolute;
+  left: 70%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--primary);
+  font-size: 8em;
+  cursor: pointer;
+  z-index: -100;
+  opacity: 0.3;
+  transition: 0.3s;
+}
+.banner .play:hover,
+.banner .pause:hover {
+  color: #fff;
+  opacity: 1;
+}
+
+.banner .play.active {
+  display: block;
+}
+
+.banner .pause.active {
+  display: block;
+}
+
+//Responsive Design
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: green;
+  }
+  header {
+    padding: 20px 50px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+  }
+  header::after {
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--primary);
+  }
+  .logo {
+    margin-top: 10px;
+  }
+  .nav {
+    right: 0;
+    width: 100%;
+  }
+  .nav.active {
+    right: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border: none;
+  }
+  .banner {
+    padding: 50px 30px 100px;
+  }
+  .banner .content {
+    position: relative;
+    padding: 50px 0 100px;
+  }
+  .banner .content h1 {
+    font-size: 5em;
+  }
+  .banner .content .model {
+    font-size: 2em;
+  }
+
+  .banner .content a {
+    padding: 30px 15px;
+  }
+  .banner .screen {
+    display: none;
+  }
+  .banner .gallery {
+    width: 100%;
+    left: 0;
+  }
+  .sci {
+    right: 20px;
+  }
 }
