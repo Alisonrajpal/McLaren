@@ -61,7 +61,7 @@ header .menu {
   background-position: center;
   filter: invert(1);
   cursor: pointer;
-  top: 130px;
+
 }
 
 header .menu.active {
